@@ -11,7 +11,8 @@ public class Sort {
         System.out.println("sort:");
         int[] a = new int[]{1, 8, 2, 9, 6, 7, 5, 0, 4, 3};
         // quickSort(a, 0, a.length - 1);
-        mergeSort(a, 0, a.length-1);
+        // mergeSort(a, 0, a.length - 1);
+        heapSort(a);
         System.out.println(Arrays.toString(a));
     }
 
@@ -47,7 +48,7 @@ public class Sort {
         if (begin < end) {
             int mid = (begin + end) / 2;
             mergeSort(a, begin, mid);
-            mergeSort(a, mid+1, end);
+            mergeSort(a, mid + 1, end);
             merge(a, begin, mid, end);
         }
     }
@@ -55,24 +56,54 @@ public class Sort {
     private static void merge(int[] a, int begin, int mid, int end) {
         int[] temp = new int[a.length];
         int i = begin;
-        int j = mid+1;
+        int j = mid + 1;
         int t = 0;
-        while(i<=mid&&j<=end){
-            if(a[i]<a[j]){
+        while (i <= mid && j <= end) {
+            if (a[i] < a[j]) {
                 temp[t++] = a[i++];
-            }else{
+            } else {
                 temp[t++] = a[j++];
             }
         }
-        while(i<=mid){
+        while (i <= mid) {
             temp[t++] = a[i++];
         }
-        while(j<=end){
+        while (j <= end) {
             temp[t++] = a[j++];
         }
         t = 0;
-        while(begin<=end){
+        while (begin <= end) {
             a[begin++] = temp[t++];
+        }
+    }
+
+    private static void adjustHeap(int[] a, int parentIndex, int length) {
+        int temp = a[parentIndex];
+        int childIndex = 2 * parentIndex + 1;
+        while (childIndex < length) {
+            if (childIndex + 1 < length && a[childIndex + 1] > a[childIndex]) {
+                childIndex++;
+            }
+            if (temp >= a[childIndex]) {
+                break;
+            }
+            a[parentIndex] = a[childIndex];
+            parentIndex = childIndex;
+            childIndex = 2 * parentIndex + 1;
+        }
+        a[parentIndex] = temp;
+    }
+
+    private static void heapSort(int[] a) {
+        for (int i = (a.length - 2) / 2; i >= 0; i--) {
+            adjustHeap(a, i, a.length);
+        }
+        System.out.println(Arrays.toString(a));
+        for (int i = a.length - 1; i >= 0; i--) {
+            int temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+            adjustHeap(a, 0, i);
         }
     }
 }
