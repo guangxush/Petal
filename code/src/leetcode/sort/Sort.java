@@ -1,0 +1,78 @@
+package leetcode.sort;
+
+import java.util.Arrays;
+
+/**
+ * @author: guangxush
+ * @create: 2019/07/04
+ */
+public class Sort {
+    public static void main(String[] args) {
+        System.out.println("sort:");
+        int[] a = new int[]{1, 8, 2, 9, 6, 7, 5, 0, 4, 3};
+        // quickSort(a, 0, a.length - 1);
+        mergeSort(a, 0, a.length-1);
+        System.out.println(Arrays.toString(a));
+    }
+
+    private static void quickSort(int[] a, int start, int end) {
+        if (start < end) {
+            int pivot = a[start];
+            int i = start;
+            int j = end;
+            while (i < j) {
+                while (i < j && pivot < a[j]) {
+                    j--;
+                }
+                if (i < j) {
+                    a[i] = a[j];
+                    a[j] = pivot;
+                    i++;
+                }
+                while (i < j && pivot > a[i]) {
+                    i++;
+                }
+                if (i < j) {
+                    a[j] = a[i];
+                    a[i] = pivot;
+                    j--;
+                }
+            }
+            quickSort(a, start, i - 1);
+            quickSort(a, i + 1, end);
+        }
+    }
+
+    private static void mergeSort(int[] a, int begin, int end) {
+        if (begin < end) {
+            int mid = (begin + end) / 2;
+            mergeSort(a, begin, mid);
+            mergeSort(a, mid+1, end);
+            merge(a, begin, mid, end);
+        }
+    }
+
+    private static void merge(int[] a, int begin, int mid, int end) {
+        int[] temp = new int[a.length];
+        int i = begin;
+        int j = mid+1;
+        int t = 0;
+        while(i<=mid&&j<=end){
+            if(a[i]<a[j]){
+                temp[t++] = a[i++];
+            }else{
+                temp[t++] = a[j++];
+            }
+        }
+        while(i<=mid){
+            temp[t++] = a[i++];
+        }
+        while(j<=end){
+            temp[t++] = a[j++];
+        }
+        t = 0;
+        while(begin<=end){
+            a[begin++] = temp[t++];
+        }
+    }
+}
