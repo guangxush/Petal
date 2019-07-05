@@ -150,4 +150,26 @@ public class Sort {
         }
     }
 
+
+    public static void shellSort(int[] a) {
+        int b = a.length;
+        int temp = 0;
+        while (true) {
+            b = b / 2;
+            for (int i = 0; i < b; i++) {
+                for (int j = i + b; i < a.length; i += b) {
+                    int k = j - b;
+                    temp = a[j];
+                    for (; k >= 0 && temp < a[k]; k -= b) {
+                        a[k + b] = a[k];
+                    }
+                    a[k + b] = temp;
+                }
+            }
+            if (b == 1) {
+                break;
+            }
+        }
+    }
+
 }
