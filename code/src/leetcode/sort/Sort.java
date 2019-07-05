@@ -12,7 +12,8 @@ public class Sort {
         int[] a = new int[]{1, 8, 2, 9, 6, 7, 5, 0, 4, 3};
         // quickSort(a, 0, a.length - 1);
         // mergeSort(a, 0, a.length - 1);
-        heapSort(a);
+        // heapSort(a);
+        bubbleSort(a);
         System.out.println(Arrays.toString(a));
     }
 
@@ -106,4 +107,47 @@ public class Sort {
             adjustHeap(a, 0, i);
         }
     }
+
+    public static void bubbleSort(int[] a) {
+        int n = a.length;
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < n - 1 - j; i++) {
+                if (a[i] > a[i + 1]) {
+                    int temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void insertSort(int[] a) {
+        int n = a.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            int j = i - 1;
+            temp = a[i];
+            for (; j >= 0 && a[j] > temp; j--) {
+                a[j + 1] = a[j];
+            }
+            a[j + 1] = temp;
+        }
+    }
+
+    public static void selectSort(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            int temp = i;
+            int value = a[i];
+            for (int j = i + 1; j < n; j++) {
+                if (a[j] < value) {
+                    temp = j;
+                    value = a[j];
+                }
+            }
+            a[temp] = a[i];
+            a[i] = value;
+        }
+    }
+
 }
