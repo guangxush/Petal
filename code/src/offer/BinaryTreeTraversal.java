@@ -10,38 +10,48 @@ import java.util.Stack;
 public class BinaryTreeTraversal {
     
     public static void main(String[] args) {
-        Node head = new Node(5);
-        head.left = new Node(3);
-        head.right = new Node(8);
-        head.left.left = new Node(2);
-        head.left.right = new Node(4);
-        head.left.left.left = new Node(1);
-        head.right.left = new Node(7);
-        head.right.left.left = new Node(6);
-        head.right.right = new Node(10);
-        head.right.right.left = new Node(9);
-        head.right.right.right = new Node(11);
+        TreeNode head = new TreeNode(5);
+        head.left = new TreeNode(3);
+        head.right = new TreeNode(8);
+        head.left.left = new TreeNode(2);
+        head.left.right = new TreeNode(4);
+        head.left.left.left = new TreeNode(1);
+        head.right.left = new TreeNode(7);
+        head.right.left.left = new TreeNode(6);
+        head.right.right = new TreeNode(10);
+        head.right.right.left = new TreeNode(9);
+        head.right.right.right = new TreeNode(11);
  
         // recursive
         System.out.println("==============recursive==============");
         System.out.print("pre-order: ");
-        preOrderRec(head);
+        preOrderRecur(head);
         System.out.println();
         System.out.print("in-order: ");
-        inOrderRec(head);
+        inOrderRecur(head);
         System.out.println();
         System.out.print("pos-order: ");
-        postOrderRec(head);
+        postOrderRecur(head);
         System.out.println();
  
         // unrecursive
         System.out.println("============unrecursive=============");
-        preOrder(head);
-        inOrder(head);
-        postOrder(head);
- 
-        levelOrder(head);
+        System.out.print("pre-order: ");
+        preOrderUnrecur(head);
+        System.out.println();
+        System.out.print("in-order: ");
+        inOrderUnrecur(head);
+        System.out.println();
+        System.out.print("pos-order: ");
+        postOrderUnrecur(head);
+        System.out.println();
+        System.out.println("=============levelOrderTraversal============");
+        levelOrderTraversal(head);
+        System.out.println();
+        System.out.println("============depthTraversal=============");
+        depthTraversal(head);
     }
+
     /**
      * ==============recursive==============
      * pre-order: 5 3 2 1 4 8 7 6 10 9 11 
@@ -62,7 +72,7 @@ public class BinaryTreeTraversal {
         if(node==null){
             return;
         }
-        System.out.println(node.value+" ");
+        System.out.print(node.value+" ");
         preOrderRecur(node.left);
         preOrderRecur(node.right);
     }
@@ -80,7 +90,7 @@ public class BinaryTreeTraversal {
         stack.add(node);
         while(!stack.isEmpty()){
             TreeNode temp = stack.pop();
-            System.out.println(temp.value+" ");
+            System.out.print(temp.value+" ");
             if(temp.right!=null){
                 stack.add(temp.right);
             }
@@ -94,20 +104,20 @@ public class BinaryTreeTraversal {
      * 后序遍历递归实现
      * @param node
      */
-    public static void posOrderRecur(TreeNode node){
+    public static void postOrderRecur(TreeNode node){
         if(node==null){
             return;
         }
-        preOrderRecur(node.left);
-        preOrderRecur(node.right);
-        System.out.println(node.value+" ");
+        postOrderRecur(node.left);
+        postOrderRecur(node.right);
+        System.out.print(node.value+" ");
     }
 
     /**
      * 后序遍历非递归实现
      * @param node
      */
-    public static void posOrderUnrecur(TreeNode node){
+    public static void postOrderUnrecur(TreeNode node){
         if(node==null){
             return;
         }
@@ -122,7 +132,7 @@ public class BinaryTreeTraversal {
                 // 右子树没有打印完毕
                 stack.push(temp.right);
             }else{
-                System.out.println(stack.pop().value+" ");
+                System.out.print(stack.pop().value+" ");
                 node = temp;
             }
         }
@@ -133,11 +143,11 @@ public class BinaryTreeTraversal {
      * 现在将其修改为中右左（也即当前节点，先将左孩子入栈，在将右孩子入栈），如此我们就实现中右左的结构
      * 但是在打印的时候，我们不打印，我们在将其存放到另外一个栈中去，然后在出栈，就会是（左右中）后续遍历
      */
-    public static void postOrder(Node head) {
+    public static void postOrder(TreeNode head) {
         System.out.print("post-Order;");
         if (head != null) {
-            Stack<Node> stack1 = new Stack<Node>();
-            Stack<Node> stack2 = new Stack<Node>();
+            Stack<TreeNode> stack1 = new Stack<>();
+            Stack<TreeNode> stack2 = new Stack<>();
             stack1.push(head);
             while (!stack1.empty()) {
                 head = stack1.pop();
@@ -150,7 +160,7 @@ public class BinaryTreeTraversal {
                 }
             }
             while (!stack2.isEmpty()) {
-                System.out.print(stack2.pop().data + " ");
+                System.out.print(stack2.pop().value + " ");
             }
         }
         System.out.println();
@@ -164,9 +174,9 @@ public class BinaryTreeTraversal {
         if(node==null){
             return;
         }
-        preOrderRecur(node.left);
-        System.out.println(node.value+" ");
-        preOrderRecur(node.right);
+        inOrderRecur(node.left);
+        System.out.print(node.value+" ");
+        inOrderRecur(node.right);
     }
 
     /**
@@ -177,9 +187,6 @@ public class BinaryTreeTraversal {
      * @param node
      */
     public static void inOrderUnrecur(TreeNode node){
-        if(node==null){
-            return;
-        }
         Stack<TreeNode> stack = new Stack<>();
         while(!stack.isEmpty()||node!=null){
             if(node!=null){
@@ -187,7 +194,7 @@ public class BinaryTreeTraversal {
                 node = node.left;
             }else{
                 node = stack.pop();
-                System.out.println(node.value+" ");
+                System.out.print(node.value+" ");
                 node = node.right;
             }
         }
@@ -202,7 +209,7 @@ public class BinaryTreeTraversal {
         queue.add(node);
         while (!queue.isEmpty()){
             TreeNode temp = queue.remove();
-            System.out.println(temp.value+" ");
+            System.out.print(temp.value+" ");
             if(temp.left!=null){
                 queue.add(temp.left);
             }
@@ -221,7 +228,7 @@ public class BinaryTreeTraversal {
         stack.push(node);
         while(!stack.isEmpty()){
             TreeNode temp = stack.pop();
-            System.out.println(temp.value+" ");
+            System.out.print(temp.value+" ");
             if(temp.right!=null){
                 stack.push(temp.right);
             }
