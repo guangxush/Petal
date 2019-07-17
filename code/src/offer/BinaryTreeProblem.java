@@ -1,6 +1,5 @@
 package offer;
 
-import javax.xml.soap.Node;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
