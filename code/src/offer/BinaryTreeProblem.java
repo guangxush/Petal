@@ -102,7 +102,7 @@ public class BinaryTreeProblem {
             return;
         }
         if (root.left == null && root.right == null) {
-            System.out.println(root.data);
+            System.out.println(root.value);
         }
         LinkedList<TreeNode> queue = new LinkedList<>();
         //层分隔符
@@ -114,7 +114,7 @@ public class BinaryTreeProblem {
             if (temp == null) {
                 Iterator<TreeNode> it = queue.iterator();
                 while (it.hasNext()) {
-                    System.out.print(it.next().data + " ");
+                    System.out.print(it.next().value + " ");
                 }
                 System.out.println();
                 queue.add(null);
@@ -156,20 +156,32 @@ public class BinaryTreeProblem {
         return false;
     }
 
-    public boolean hasSubTree(TreeNode root1,TreeNode
-            root2){
-        boolean result=false; if(root1!=null&&root2!=null){
-        } }
-if(root1.data==root2.data){ result=doesTree1HavaTree2(root1,root2); if(!result)
-        result=hasSubTree(root1.leftNode, root2); if(!result)
-        result=hasSubTree(root1.rightNode, root2); return result;
-    }
-    private boolean doesTree1HavaTree2(TreeNode root1, TreeNode root2) {
-        if(root2==null){ return true;
-        }else if(root1==null) return false;
-        if(root1.data!=root2.data){ return false;
+    public boolean hasSubTree(TreeNode root1, TreeNode root2){
+        boolean result = false;
+        if(root1!=null&&root2!=null){
+            if(root1.value == root2.value){
+                result = doesTree1HaveTree2(root1, root2);
+            }
+            if(!result) {
+                result = doesTree1HaveTree2(root1.left, root2);
+            }
+            if(!result){
+                result = doesTree1HaveTree2(root1.right, root2);
+            }
         }
-        return doesTree1HavaTree2(root1.leftNode, root2.leftNode)&&
-                doesTree1HavaTree2(root1.rightNode, root2.rightNode);
+        return result;
+    }
+
+    private boolean doesTree1HaveTree2(TreeNode root1, TreeNode root2){
+        if(root2 == null){
+            return true;
+        }else if(root1 == null){
+            return false;
+        }
+        if(root1.value!=root2.value){
+            return false;
+        }
+        return doesTree1HaveTree2(root1.left, root2.left)&&
+                doesTree1HaveTree2(root1.right, root2.right);
     }
 }
