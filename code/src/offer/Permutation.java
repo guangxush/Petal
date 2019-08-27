@@ -24,7 +24,7 @@ public class Permutation {
 
     public void change(char[] chs, int start, TreeSet<String> set) {
         if (start == chs.length - 1) {
-            set.add(chs.toString());
+            set.add(String.valueOf(chs));
         }
         for (int i = start; i < chs.length; i++) {
             swap(chs, start, i);
