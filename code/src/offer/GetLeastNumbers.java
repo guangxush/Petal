@@ -18,14 +18,12 @@ public class GetLeastNumbers {
         int index = Partion(array, start, end);
         while (index != (k - 1)) {
             if (index > (k - 1)) {
-                end = index - 1;
-                Partion(array, start, end);
+                index = Partion(array, 0, index-1);
             } else {
-                start = index + 1;
-                Partion(array, start, end);
+                index = Partion(array, index+1, k-1-index);
             }
         }
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < k; i++) {
             list.add(array[i]);
         }
         return list;
@@ -58,7 +56,7 @@ public class GetLeastNumbers {
 
 
     public ArrayList<Integer> GetLeastNumbersTwo(int[] array, int k) {
-        ArrayList<Integer> leastNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> leastNumbers = new ArrayList<>();
         if(array==null || k<=0 || k>array.length) {
             return leastNumbers;
         }
@@ -96,5 +94,16 @@ public class GetLeastNumbers {
             childIndex = 2*parentIndex+1;
         }
         array[parentIndex] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {7, 9, 3, 6, 1, 11, 7, 4, 5, 8, 10};
+        int k = 5;
+        GetLeastNumbers getLeastNumbers = new GetLeastNumbers();
+        ArrayList<Integer> result = new ArrayList<>();
+        result = getLeastNumbers.GetLeastNumbersOne(array, k);
+        System.out.println(result.toString());
+//        result = getLeastNumbers.GetLeastNumbersTwo(array, k);
+//        System.out.println(result.toString());
     }
 }
