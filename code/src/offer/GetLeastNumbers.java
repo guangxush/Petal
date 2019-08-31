@@ -46,8 +46,8 @@ public class GetLeastNumbers {
                 i++;
             }
             if (i < j) {
-                array[i] = array[j];
-                array[j] = pivot;
+                array[j] = array[i];
+                array[i] = pivot;
                 j--;
             }
         }
@@ -64,13 +64,15 @@ public class GetLeastNumbers {
         for(int i=0;i<k;i++){
             numbers[i] = array[i];
         }
-        for(int i=k/2-1;i>=0;i--){
-            adjustHeap(array, i ,k-1);
+        //初始化为最大堆
+        for(int i=(array.length-1)/2;i>=0;i--){
+            adjustHeap(array, i ,array.length-1);
         }
+        //遍历数组不断调整最大堆
         for(int i=k;i<array.length;i++){
             if(array[i]<numbers[0]){
                 numbers[0] = array[i];
-                adjustHeap(numbers, 0 ,k-1);
+                adjustHeap(numbers, 0 ,numbers.length-1);
             }
         }
         for(int n :numbers){
@@ -97,13 +99,23 @@ public class GetLeastNumbers {
     }
 
     public static void main(String[] args) {
-        int[] array = {7, 9, 3, 6, 1, 11, 7, 4, 5, 8, 10};
+        int[] array = {7, 9, 3, 6, 1, 11, 2, 4, 5, 8, 10};
         int k = 5;
         GetLeastNumbers getLeastNumbers = new GetLeastNumbers();
         ArrayList<Integer> result = new ArrayList<>();
-        result = getLeastNumbers.GetLeastNumbersOne(array, k);
-        System.out.println(result.toString());
-//        result = getLeastNumbers.GetLeastNumbersTwo(array, k);
+//        result = getLeastNumbers.GetLeastNumbersOne(array, k);
 //        System.out.println(result.toString());
+        result = getLeastNumbers.GetLeastNumbersTwo(array, k);
+        System.out.println(result.toString());
     }
 }
+
+/**
+ * 优缺点:
+ * 思路1
+ * 优点：节省空降，时间复杂度平均为O（n）
+ * 缺点：需要修改原始数组
+ * 思路2
+ * 优点：不用修改原始数组，适合海量数据
+ * 缺点：时间复杂度略高O(nlogk)
+ */
