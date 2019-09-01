@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class GetLeastNumbers {
     public ArrayList<Integer> GetLeastNumbersOne(int[] array, int k) {
         ArrayList<Integer> list = new ArrayList<>();
-        if (array==null || k<=0 || k>array.length) {
+        if (array == null || k <= 0 || k > array.length) {
             return list;
         }
         int start = 0;
@@ -18,9 +18,9 @@ public class GetLeastNumbers {
         int index = Partion(array, start, end);
         while (index != (k - 1)) {
             if (index > (k - 1)) {
-                index = Partion(array, 0, index-1);
+                index = Partion(array, 0, index - 1);
             } else {
-                index = Partion(array, index+1, k-1-index);
+                index = Partion(array, index + 1, k - 1 - index);
             }
         }
         for (int i = 0; i < k; i++) {
@@ -57,55 +57,54 @@ public class GetLeastNumbers {
 
     public ArrayList<Integer> GetLeastNumbersTwo(int[] array, int k) {
         ArrayList<Integer> leastNumbers = new ArrayList<>();
-        if(array==null || k<=0 || k>array.length) {
+        if (array == null || k <= 0 || k > array.length) {
             return leastNumbers;
         }
-        int[] numbers = new int[k];
-        for(int i=0;i<k;i++){
-            numbers[i] = array[i];
-        }
         //初始化为最大堆
-        for(int i=(array.length-1)/2;i>=0;i--){
-            adjustHeap(array, i ,array.length-1);
+        for (int i = k / 2-1; i >= 0; i--) {
+            adjustHeap(array, i, k);
         }
-        //遍历数组不断调整最大堆
-        for(int i=k;i<array.length;i++){
-            if(array[i]<numbers[0]){
-                numbers[0] = array[i];
-                adjustHeap(numbers, 0 ,numbers.length-1);
+        //从第k个元素开始分别与最大堆的最大值做比较，如果比最大值小，则替换并调整堆,最终堆里的就是最小的K个数
+        for (int i = k; i < array.length; i++) {
+            if (array[i] < array[0]) {
+                int temp = array[0];
+                array[0] = array[i];
+                array[i] = temp;
+                adjustHeap(array, 0, k);
             }
         }
-        for(int n :numbers){
-            leastNumbers.add(n);
+        for (int i = 0; i < k; i++) {
+            leastNumbers.add(array[i]);
         }
         return leastNumbers;
     }
 
-    private void adjustHeap(int[] array, int parentIndex, int end){
+    private void adjustHeap(int[] array, int parentIndex, int end) {
         int temp = array[parentIndex];
-        int childIndex = 2*parentIndex+1;
-        while(childIndex<end){
-            if(childIndex+1<end&&array[childIndex+1]>array[childIndex]){
+        int childIndex = 2 * parentIndex + 1;
+        while (childIndex < end) {
+            if (childIndex + 1 < end && array[childIndex + 1] > array[childIndex]) {
                 childIndex++;
             }
-            if(array[childIndex]<temp){
+            if (array[childIndex] < temp) {
                 break;
             }
             array[parentIndex] = array[childIndex];
             parentIndex = childIndex;
-            childIndex = 2*parentIndex+1;
+            childIndex = 2 * parentIndex + 1;
         }
         array[parentIndex] = temp;
     }
 
     public static void main(String[] args) {
         int[] array = {7, 9, 3, 6, 1, 11, 2, 4, 5, 8, 10};
-        int k = 5;
+        int[] array2 = {4, 5, 1, 6, 2, 7, 3, 8};
+        int k = 4;
         GetLeastNumbers getLeastNumbers = new GetLeastNumbers();
         ArrayList<Integer> result = new ArrayList<>();
 //        result = getLeastNumbers.GetLeastNumbersOne(array, k);
 //        System.out.println(result.toString());
-        result = getLeastNumbers.GetLeastNumbersTwo(array, k);
+        result = getLeastNumbers.GetLeastNumbersTwo(array2, k);
         System.out.println(result.toString());
     }
 }
