@@ -20,7 +20,7 @@ public class InversePairs {
         if (array != null) {
             mergeSort(array, 0, array.length - 1);
         }
-        return count;
+        return count%1000000007;
     }
 
     public void mergeSort(int[] a, int start, int end) {
