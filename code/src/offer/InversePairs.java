@@ -42,6 +42,9 @@ public class InversePairs {
             } else {
                 temp[k++] = a[j++];
                 count += mid - i + 1;
+                if(count > 1000000007){
+                    count = count%1000000007;
+                }
             }
         }
         while (i <= mid) {
