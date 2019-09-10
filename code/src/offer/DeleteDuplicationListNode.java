@@ -1,5 +1,7 @@
 package offer;
 
+import java.util.HashSet;
+
 /**
  * @author: guangxush
  * @create: 2019/09/10
@@ -7,19 +9,22 @@ package offer;
  * 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
  */
 public class DeleteDuplicationListNode {
+    private HashSet<Integer> set = new HashSet<>();
     public ListNode deleteDuplication(ListNode pHead)
     {
         if(pHead==null||pHead.next==null){
             return pHead;
         }
-        ListNode result = pHead;
-        while(pHead.next!=null){
-            if(pHead.data!=pHead.next.data){
-                pHead = pHead.next;
-            }else{
-                pHead.next = pHead.next.next;
+        if(pHead.data==pHead.next.data){//当前节点重复
+            ListNode pNode = pHead.next;
+            while(pNode!=null&&pNode.data==pHead.data){
+                // 跳过与当前节点值相同的全部节点
+                pNode = pNode.next;
             }
+            return deleteDuplication(pNode);
+        }else{// 当前节点不是重复节点
+            pHead.next = deleteDuplication(pHead.next);
+            return pHead;
         }
-        return result;
     }
 }
