@@ -18,6 +18,7 @@ public class MaxInWindows {
         int begin;
         ArrayDeque<Integer> queue = new ArrayDeque<>();
         for(int i=0;i<num.length;i++){
+            //begin是用于保存当前窗口的第一个值在原始数组中的【下标】
             begin = i-size+1;
             if(queue.isEmpty()){
                 queue.add(i);
@@ -29,7 +30,7 @@ public class MaxInWindows {
             }
             queue.add(i);
             if(begin>=0){
-                res.add(num[queue.peekLast()]);
+                res.add(num[queue.peekFirst()]);
             }
         }
         return res;
