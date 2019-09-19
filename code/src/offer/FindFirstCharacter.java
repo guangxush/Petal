@@ -13,7 +13,7 @@ public class FindFirstCharacter {
     HashMap<Character,Integer> map=new HashMap<>();
     String s = new String("");
 
-    //Insert one char from stringstream
+    //Insert one char from string stream
     public void Insert(char ch)
     {
         s+=ch;
@@ -23,7 +23,7 @@ public class FindFirstCharacter {
             map.put(ch, map.get(ch)+1);
         }
     }
-    //return the first appearence once char in current stringstream
+    //return the first appearance once char in current string stream
     public char FirstAppearingOnce()
     {
         char[] cs = s.toCharArray();
