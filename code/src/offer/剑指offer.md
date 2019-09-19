@@ -542,24 +542,73 @@ public class FindKthToTail {
 }
 ```
 
-## 替换空格
+## 反转链表
 
 ### 题目描述
+输入一个链表，反转链表后，输出新链表的表头。
+
 
 ### 解决思路
+定义一个节点，前一个节点，当前节点，根据
 
 ### 代码实现
+```java
+public class LinkNodeProblem {
+    public static ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode now = head;
+        while (now != null) {
+            ListNode next = now.next;
+            now.next = pre;
+            pre = now;
+            now = next;
+        }
+        return pre;
+    }
+}
+```
 
 
-## 替换空格
+## 合并两个排序的列表
 
 ### 题目描述
+输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+
 
 ### 解决思路
+建立一个新的链表，从头开始遍历，然后合并
 
 ### 代码实现
+```java
+public class MergeTwoSortList{
+    /**
+     * 合并两个有序的单链表
+     *
+     * @param head1
+     * @param head2
+     * @return
+     */
+    public static ListNode mergeTwoSortList(ListNode head1, ListNode head2) {
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+        ListNode head = null;
+        if (head1.data < head2.data) {
+            head = head1;
+            head.next = mergeTwoSortList(head1.next, head2);
+        } else {
+            head = head2;
+            head.next = mergeTwoSortList(head1, head2.next);
+        }
+        return head;
+    }
+}
+```
 
-## 替换空格
+## 
 
 ### 题目描述
 
