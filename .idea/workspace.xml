@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13a0d904-b2fb-4ee2-bd67-5d4439ed1f0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/experience/研发岗面试复习内容.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/保研面试技巧.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/写论文技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/experience/写论文技巧.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/如何实习.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/本科学习建议.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/毕业大论文写作技巧.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experience/硕士学习建议.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,65 +14,35 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/EggsOptimized.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="126">
+                    <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experience/简历技巧.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1449">
-                <caret line="69" selection-start-line="69" selection-end-line="69" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/LongestValidParentheses32.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/UniquePathsII63.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experience/硕士比赛分享.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experience/写论文技巧.md">
+        <entry file="file://$PROJECT_DIR$/experience/研发岗面试复习内容.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="514">
-                <caret line="154" column="5" selection-start-line="154" selection-end-line="155" />
+              <first_editor relative-caret-position="655">
+                <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/EggsOptimized.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -85,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/SuperEggDrop887.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
+            <state relative-caret-position="2205">
               <caret line="106" column="49" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="49" />
             </state>
           </provider>
@@ -109,6 +74,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>,</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>，</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -121,11 +94,13 @@
         <option value="$PROJECT_DIR$/experience/简历技巧.md" />
         <option value="$PROJECT_DIR$/code/src/leetcode/dp/MinimumPathSum64.java" />
         <option value="$PROJECT_DIR$/experience/写论文技巧.md" />
+        <option value="$PROJECT_DIR$/experience/研发岗面试复习内容.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="106" />
+    <option name="y" value="60" />
     <option name="width" value="1680" />
     <option name="height" value="950" />
   </component>
@@ -230,18 +205,20 @@
       <workItem from="1582288502282" duration="12720000" />
       <workItem from="1582516014181" duration="2000" />
       <workItem from="1582542002398" duration="22887000" />
-      <workItem from="1582802361060" duration="3671000" />
+      <workItem from="1582802361060" duration="4283000" />
+      <workItem from="1582890573864" duration="2771000" />
+      <workItem from="1582895451737" duration="2845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41305000" />
+    <option name="totallyTimeSpent" value="47533000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="950" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="951" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21733822" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21978022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -286,16 +263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="42">
-            <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/UniquePaths62.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -303,24 +270,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experience/保研面试技巧.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experience/简历技巧.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1449">
-            <caret line="69" selection-start-line="69" selection-end-line="69" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/experience/保研面试技巧.md" />
+    <entry file="file://$PROJECT_DIR$/experience/毕业大论文写作技巧.md" />
+    <entry file="file://$PROJECT_DIR$/experience/如何实习.md" />
+    <entry file="file://$PROJECT_DIR$/experience/本科学习建议.md" />
+    <entry file="file://$PROJECT_DIR$/experience/硕士学习建议.md" />
     <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/LongestValidParentheses32.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -343,6 +297,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experience/写论文技巧.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="399">
+            <caret line="162" selection-start-line="162" selection-end-line="162" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-805">
+            <caret line="12" lean-forward="true" selection-start-line="2" selection-end-line="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experience/简历技巧.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="483">
+            <caret line="69" selection-start-line="69" selection-end-line="69" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/SuperEggDrop887.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="106" column="49" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/MinimumPathSum64.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
@@ -350,57 +341,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experience/毕业大论文写作技巧.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experience/如何实习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experience/本科学习建议.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experience/硕士学习建议.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/EggsOptimized.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
+        <state relative-caret-position="126">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/src/leetcode/dp/SuperEggDrop887.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="106" column="49" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experience/写论文技巧.md">
+    <entry file="file://$PROJECT_DIR$/experience/研发岗面试复习内容.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="514">
-            <caret line="154" column="5" selection-start-line="154" selection-end-line="155" />
+          <first_editor relative-caret-position="655">
+            <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           </first_editor>
           <second_editor />
         </state>
