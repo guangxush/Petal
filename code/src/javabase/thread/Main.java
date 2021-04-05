@@ -61,10 +61,27 @@ public class Main {
         // 设置线程休眠
         System.out.println("休眠前");
         try {
-            Thread.sleep(10000);
+            // 休眠1秒钟
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("休眠后");
+
+        // interrupt线程
+        TestInterrupted testInterrupted = new TestInterrupted();
+        Thread testInterrupt = new Thread(testInterrupted);
+        testInterrupt.start();
+        // 判断线程是否存活
+        System.out.println(testInterrupt.isAlive());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        testInterrupt.interrupt();
+
+        // 判断线程是否存活
+        System.out.println(testInterrupt.isAlive());
     }
 }
