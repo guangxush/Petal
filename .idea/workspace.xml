@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13a0d904-b2fb-4ee2-bd67-5d4439ed1f0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/src/leetcode/dp/UniqueBinarySearchTrees96.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/daemon/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/daemon/PrintTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/thread/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/thread/ReadMe.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/thread/TestCallable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/thread/TestRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/javabase/thread/TestThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,20 +41,46 @@
   <component name="ProjectId" id="1ZU3QRttsC05Cnlqyl9qAQ1nOaY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/code/src/javabase" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code/src/javabase" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="javabase.thread.Main" />
+      <module name="Petal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javabase.thread.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -81,84 +114,22 @@
       <workItem from="1584879830509" duration="1952000" />
       <workItem from="1584887818494" duration="131000" />
       <workItem from="1584947026902" duration="29000" />
-      <workItem from="1584967977182" duration="1122000" />
+      <workItem from="1584967977182" duration="1433000" />
+      <workItem from="1617590314807" duration="291000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Petal</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="656" y="79" key="#Project_Structure" timestamp="1617590540861">
+      <screen x="0" y="23" width="1680" height="953" />
+    </state>
+    <state x="656" y="79" key="#Project_Structure/0.23.1680.953@0.23.1680.953" timestamp="1617590540861" />
+    <state x="609" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617590501619">
+      <screen x="0" y="23" width="1680" height="953" />
+    </state>
+    <state x="609" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.953@0.23.1680.953" timestamp="1617590501619" />
   </component>
 </project>
