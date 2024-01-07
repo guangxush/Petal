@@ -186,6 +186,219 @@ public class ConstructBinaryNode {
 }
 ```
 
+根据前序和后序
+```java
+class Solution {
+ public TreeNode constructFromPrePost(int[] pre, int[] post) {
+    return dfs(pre, 0, pre.length - 1, post, 0, pre.length - 1);
+ }
+ private TreeNode dfs(int[] pre, int preStart, int preEnd, int[] post, int postStart, int postEnd){
+    if(preStart > preEnd){
+     return null;
+    }
+    TreeNode root = new TreeNode(pre[preStart]);
+    // 已经遍历完成的，直接返回最后一个节点
+    if (preStart == preEnd) {
+     return root;
+    }
+    // post节点从初始位置开始数，直到当前节点等于 前序遍历当前节点的下一个节点，因为下一节点为左右节点分割线
+    int postIndex = postStart;
+    while(post[postIndex] != pre[preStart + 1]){
+     postIndex++;
+    }
+    // 获取左侧节点的长度
+    int len = postIndex - postStart + 1;
+    // 左侧节点的pre为 start+1往后数len个长度；post节点为start开始往后到postIndex
+    root.left = dfs(pre, preStart+1, preStart+len, post, postStart, postStart+len);
+    // 右侧节点的pre为从preStart+len+1开始一直到结束preEnd；post节点为postStart+len开始到去掉最后的根结点
+    root.right = dfs(pre, preStart+len+1, preEnd, post, postStart+len, postEnd - 1);
+    // 注意pre都+1是因为第一个节点为根结点，要去掉
+    return root;
+ }
+}
+```
+
+二叉树其他题目
+```java
+public class BinaryTreeTraversal {
+
+    /**
+     * 先序遍历递归
+     * @param node
+     */
+    public static void preOrderRecur(TreeNode node){
+        if(node==null){
+            return;
+        }
+        System.out.print(node.value+" ");
+        preOrderRecur(node.left);
+        preOrderRecur(node.right);
+    }
+
+    /**
+     * 先序遍历非递归
+     * 实现的思路：使用辅助的数据结构栈来实现，每一次循环出栈，先存放当前节点右边元素，再存放左边元素
+     * @param node
+     */
+    public static void preOrderUnrecur(TreeNode node){
+        if(node==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(node);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.value+" ");
+            if(temp.right!=null){
+                stack.add(temp.right);
+            }
+            if(temp.left!=null){
+                stack.add(temp.left);
+            }
+        }
+    }
+
+    /**
+     * 后序遍历递归实现
+     * @param node
+     */
+    public static void postOrderRecur(TreeNode node){
+        if(node==null){
+            return;
+        }
+        postOrderRecur(node.left);
+        postOrderRecur(node.right);
+        System.out.print(node.value+" ");
+    }
+
+    /**
+     * 后序遍历非递归实现
+     * @param node
+     */
+    public static void postOrderUnrecur(TreeNode node){
+        if(node==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(node);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.peek();
+            if(temp.left!=null&&node!=temp.left&&node!=temp.right){
+                // 左子树没有打印完毕
+                stack.push(temp.left);
+            }else if(temp.right!=null&&node!=temp.right){
+                // 右子树没有打印完毕
+                stack.push(temp.right);
+            }else{
+                System.out.print(stack.pop().value+" ");
+                node = temp;
+            }
+        }
+    }
+    
+    /**
+     * 实现思路：上面我们实现了二叉树的先序遍历（中左右）也即当前节点，先将右孩子入栈，在将左孩子入栈，
+     * 现在将其修改为中右左（也即当前节点，先将左孩子入栈，在将右孩子入栈），如此我们就实现中右左的结构
+     * 但是在打印的时候，我们不打印，我们在将其存放到另外一个栈中去，然后在出栈，就会是（左右中）后续遍历
+     */
+    public static void postOrder(TreeNode head) {
+        System.out.print("post-Order;");
+        if (head != null) {
+            Stack<TreeNode> stack1 = new Stack<>();
+            Stack<TreeNode> stack2 = new Stack<>();
+            stack1.push(head);
+            while (!stack1.empty()) {
+                head = stack1.pop();
+                stack2.push(head);
+                if (head.left != null) {
+                    stack1.push(head.left);
+                }
+                if (head.right != null) {
+                    stack1.push(head.right);
+                }
+            }
+            while (!stack2.isEmpty()) {
+                System.out.print(stack2.pop().value + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    /**
+     * 中序遍历递归实现
+     * @param node
+     */
+    public static void inOrderRecur(TreeNode node){
+        if(node==null){
+            return;
+        }
+        inOrderRecur(node.left);
+        System.out.print(node.value+" ");
+        inOrderRecur(node.right);
+    }
+
+    /**
+     * 中序遍历非递归实现
+     * 二叉树的中序遍历，非递归实现
+     * 实现思路：使用辅助数组栈，从头节点开始，一路向左入栈，直到当前节点为空；然后当前节点指向栈顶弹出的元素
+     * 打印当前节点，然后当前节点在指向当前节点的右节点。一直进行此过程。直到栈为空
+     * @param node
+     */
+    public static void inOrderUnrecur(TreeNode node){
+        Stack<TreeNode> stack = new Stack<>();
+        while(!stack.isEmpty()||node!=null){
+            if(node!=null){
+                stack.push(node);
+                node = node.left;
+            }else{
+                node = stack.pop();
+                System.out.print(node.value+" ");
+                node = node.right;
+            }
+        }
+    }
+
+    /**
+     * 广度优先遍历
+     * @param node
+     */
+    public static void levelOrderTraversal(TreeNode node){
+        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        queue.add(node);
+        while (!queue.isEmpty()){
+            TreeNode temp = queue.remove();
+            System.out.print(temp.value+" ");
+            if(temp.left!=null){
+                queue.add(temp.left);
+            }
+            if(temp.right!=null){
+                queue.add(temp.right);
+            }
+        }
+    }
+
+    /**
+     * 深度优先遍历
+     * @param node
+     */
+    public static void depthTraversal(TreeNode node){
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(node);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.value+" ");
+            if(temp.right!=null){
+                stack.push(temp.right);
+            }
+            if(temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+    }
+
+}
+```
+
 
 ## 两个栈实现一个队列
 
@@ -2498,5 +2711,179 @@ public class MaxInWindows {
         }
         return res;
     }
+}
+```
+
+## 排序
+
+### 题目实现
+
+```java
+public class Sort {
+    public static void main(String[] args) {
+        System.out.println("sort:");
+        int[] a = new int[]{1, 8, 2, 9, 6, 7, 5, 0, 4, 3};
+        // quickSort(a, 0, a.length - 1);
+        // mergeSort(a, 0, a.length - 1);
+        // heapSort(a);
+        bubbleSort(a);
+        System.out.println(Arrays.toString(a));
+    }
+
+    private static void quickSort(int[] a, int start, int end) {
+        if (start < end) {
+            int pivot = a[start];
+            int i = start;
+            int j = end;
+            while (i < j) {
+                while (i < j && pivot < a[j]) {
+                    j--;
+                }
+                if (i < j) {
+                    a[i] = a[j];
+                    a[j] = pivot;
+                    i++;
+                }
+                while (i < j && pivot > a[i]) {
+                    i++;
+                }
+                if (i < j) {
+                    a[j] = a[i];
+                    a[i] = pivot;
+                    j--;
+                }
+            }
+            quickSort(a, start, i - 1);
+            quickSort(a, i + 1, end);
+        }
+    }
+
+    private static void mergeSort(int[] a, int begin, int end) {
+        if (begin < end) {
+            int mid = (begin + end) / 2;
+            mergeSort(a, begin, mid);
+            mergeSort(a, mid + 1, end);
+            merge(a, begin, mid, end);
+        }
+    }
+
+    private static void merge(int[] a, int begin, int mid, int end) {
+        int[] temp = new int[a.length];
+        int i = begin;
+        int j = mid + 1;
+        int t = 0;
+        while (i <= mid && j <= end) {
+            if (a[i] < a[j]) {
+                temp[t++] = a[i++];
+            } else {
+                temp[t++] = a[j++];
+            }
+        }
+        while (i <= mid) {
+            temp[t++] = a[i++];
+        }
+        while (j <= end) {
+            temp[t++] = a[j++];
+        }
+        t = 0;
+        while (begin <= end) {
+            a[begin++] = temp[t++];
+        }
+    }
+
+    private static void adjustHeap(int[] a, int parentIndex, int length) {
+        int temp = a[parentIndex];
+        int childIndex = 2 * parentIndex + 1;
+        while (childIndex < length) {
+            if (childIndex + 1 < length && a[childIndex + 1] > a[childIndex]) {
+                childIndex++;
+            }
+            if (temp >= a[childIndex]) {
+                break;
+            }
+            a[parentIndex] = a[childIndex];
+            parentIndex = childIndex;
+            childIndex = 2 * parentIndex + 1;
+        }
+        a[parentIndex] = temp;
+    }
+
+    private static void heapSort(int[] a) {
+        for (int i = (a.length - 2) / 2; i >= 0; i--) {
+            adjustHeap(a, i, a.length);
+        }
+        System.out.println(Arrays.toString(a));
+        for (int i = a.length - 1; i >= 0; i--) {
+            int temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+            adjustHeap(a, 0, i);
+        }
+    }
+
+    public static void bubbleSort(int[] a) {
+        int n = a.length;
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < n - 1 - j; i++) {
+                if (a[i] > a[i + 1]) {
+                    int temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void insertSort(int[] a) {
+        int n = a.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            int j = i - 1;
+            temp = a[i];
+            for (; j >= 0 && a[j] > temp; j--) {
+                a[j + 1] = a[j];
+            }
+            a[j + 1] = temp;
+        }
+    }
+
+    public static void selectSort(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            int temp = i;
+            int value = a[i];
+            for (int j = i + 1; j < n; j++) {
+                if (a[j] < value) {
+                    temp = j;
+                    value = a[j];
+                }
+            }
+            a[temp] = a[i];
+            a[i] = value;
+        }
+    }
+
+
+    public static void shellSort(int[] a) {
+        int b = a.length;
+        int temp = 0;
+        while (true) {
+            b = b / 2;
+            for (int i = 0; i < b; i++) {
+                for (int j = i + b; i < a.length; i += b) {
+                    int k = j - b;
+                    temp = a[j];
+                    for (; k >= 0 && temp < a[k]; k -= b) {
+                        a[k + b] = a[k];
+                    }
+                    a[k + b] = temp;
+                }
+            }
+            if (b == 1) {
+                break;
+            }
+        }
+    }
+
 }
 ```
